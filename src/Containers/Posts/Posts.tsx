@@ -26,6 +26,7 @@ const Posts = () => {
     void fetchPosts();
   }, [fetchPosts]);
 
+
   return (
     <div className="mt-3 d-flex flex-column gap-4">
       {posts.map (post => (

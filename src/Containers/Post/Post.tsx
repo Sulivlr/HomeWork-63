@@ -26,6 +26,18 @@ const Post = () => {
     void fetchPost();
   }, [fetchPost]);
 
+  const deletePost = async () => {
+    setIsLoading(true);
+    try {
+      await axiosApi.delete('/posts/' + params.id + '.json');
+      navigate('/');
+    } catch (error) {
+      console.error('Error deleting post', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   let postArea = <Spinner />;
 
   if (!isLoading && post) {
@@ -36,7 +48,7 @@ const Post = () => {
         <div>{post.description}</div>
         <div>
           <div className="d-flex flex-row gap-2 mt-2">
-            <button className="btn btn-primary" onClick={() => navigate('/')}>Delete</button>
+            <button className="btn btn-primary" onClick={deletePost} disabled={isLoading}>Delete</button>
             <Link to={'/posts/' + params.id + '/edit'} className="btn btn-success">Edit</Link>
           </div>
         </div>

@@ -46,7 +46,7 @@ const NewPost = () => {
       </div>
       <div className="mb-3">
         <label htmlFor="description" className="form-label">Description</label>
-        <textarea required className="form-control" value={newPost.description} onChange={onFieldChange} name="description" id="description" rows="3" placeholder="Description"></textarea>
+        <textarea className="form-control" value={newPost.description} onChange={onFieldChange} name="description" id="description" rows="3" placeholder="Description"></textarea>
       </div>
       <button type="submit" className="btn btn-primary" disabled={isLoading}>Save</button>
     </form>

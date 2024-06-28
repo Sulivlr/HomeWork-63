@@ -4,6 +4,7 @@ export interface ApiPost {
   description: string;
 }
 
+
 export interface Post extends ApiPost {
   id: string;
 }
